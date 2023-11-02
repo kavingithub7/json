@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="demo"></p>
+
+    <table border="1" id="mytable">
+      <tr>
+        <th rowspan="2">name</th>
+        <th colspan="4">marks</th>
+      </tr>
+      <tr>
+        <td>math</td>
+        <td>english</td>
+        <td>chemistry</td>
+        <td>physics</td>
+      </tr>
+    </table>
+    <br>
+    <button onclick="sortTable('A-Z')">A-Z</button>
+    <button onclick="sortTable('Z-A')">Z-A</button><br>
+    <label for="name">Enter your name</label>
+    <input type="text" id="name1"><br>
+    <label for="mm">Maths</label>
+    <input type="number" id="m1"><br>
+    <label for="em">English</label>
+    <input type="number" id="m2"><br>
+    <label for="cm">Chemistry</label>
+    <input type="number" id="m3"><br>
+    <label for="pm">Physics</label>
+    <input type="number" id="m4"><br>
+
+    <button onclick="addRow()">Add NAME AND MARK </button>
+
+    <script>
+      const myJSON = `{
+        "result": [
+          { "name": "John",
+            "marks": {
+              "math": "78",
+              "english": "90",
+              "chemistry": "64",
+              "physics": "89"
+            }
+          },
+          {
+            "name": "Mike",
+            "marks": {
+              "math": "67",
+              "english": "86",
+              "chemistry": "59",
+              "physics": "70"
+            }
+          },
+          {
+            "name": "Julia",
+            "marks": {
+              "math": "82",
+              "english": "75",
+              "chemistry": "73",
+              "physics": "84"
+            }
+          },
+          {
+            "name": "Tom",
+            "marks": {
+              "math": "76",
+              "english": "64",
+              "chemistry": "59",
+              "physics": "72"
+            }
+          },
+          {
+            "name": "Barbara",
+            "marks": {
+              "math": "90",
+              "english": "85",
+              "chemistry": "88",
+              "physics": "92"
+            }
+          }
+        ]
+      }`;
+
+      const data = JSON.parse(myJSON);
+
+      function updateTable() {
+        const a = data.result.length;
+        let tr = "";
+        tr+=`<tr>
+          <th rowspan="2">name</th>
+          <th colspan="4">marks</th>
+          </tr>`
+          tr+=`<tr>
+          <th>math</th>
+          <th>english</th>
+          <th>chemistry</th>
+          <th>physics</th>
+          </tr>`
+          
+        for (let i = 0; i < a; i++) {
+          tr += "<tr>";
+          tr += `<td>${data.result[i].name}</td>`;
+          for (var key in data.result[i].marks) {
+            tr += `<td>${data.result[i].marks[key]}</td>`;
+          }
+          tr += "</tr>";
+        }
+        document.getElementById("mytable").innerHTML = tr;
+      }
+
+      function addRow() {
+        const name = document.getElementById("name1").value;
+        const math = document.getElementById("m1").value;
+        const english = document.getElementById("m2").value;
+        const chemistry = document.getElementById("m3").value;
+        const physics = document.getElementById("m4").value;
+
+        data.result.push({
+          name: name,
+          marks: {
+            math: math,
+            english: english,
+            chemistry: chemistry,
+            physics: physics,
+          },
+        });
+
+        updateTable();
+      }
+
+      function sortTable(order) {
+        data.result.sort(function(a, b) {
+          const nameA = a.name;
+          const nameB = b.name;
+          if (order === 'A-Z') {
+            return nameA.localeCompare(nameB);
+          } else if (order === 'Z-A') {
+            return nameB.localeCompare(nameA);
+          }
+        });
+
+        updateTable();
+      }
+
+      updateTable();
+    </script>
+  </body>
+</html>

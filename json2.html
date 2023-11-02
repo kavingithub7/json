@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="demo"></p>
+
+    <table border="1" id="mytable">
+      <tr>
+        <th rowspan="2">name</th>
+        <th colspan="4">marks</th>
+      </tr>
+      <tr>
+        <td>math</td>
+        <td>english</td>
+        <td>chemistry</td>
+        <td>physics</td>
+      </tr>
+    </table>
+    <br>
+    <button onclick="F1()">A-Z</button>
+    <button onclick="F2()">Z-A</button><BR>
+      <label for="name">enter your name<label>
+      <input type="text" id="n1"><br>
+      <label for="mm">MATHS</label>
+      <input type="number" id="m1"><br>
+      <label for="em">English</label>
+      <input type="number" id="m2"><br>
+      <label for="cm">CHEMISTRY</label>
+      <input type="number" id="m3"><br>
+      <label for="pm">PHYSICS</label>
+      <input type="number" id="m4"><br>
+      <button onclick="add()"> add the mark</button>
+
+    <script>
+      const myJSON = `{
+  "result": [
+    { "name": "John",
+      "marks": {
+        "math": "78",
+        "english": "90",
+        "chemistry": "64",
+        "physics": "89"
+      }
+    },
+    {
+      "name": "Mike",
+      "marks": {
+        "math": "67",
+        "english": "86",
+        "chemistry": "59",
+        "physics": "70"
+      }
+    },
+    {
+      "name": "Julia",
+      "marks": {
+        "math": "82",
+        "english": "75",
+        "chemistry": "73",
+        "physics": "84"
+      }
+    },
+    {
+      "name": "Tom",
+      "marks": {
+        "math": "76",
+        "english": "64",
+        "chemistry": "59",
+        "physics": "72"
+      }
+    },
+    {
+      "name": "Barbara",
+      "marks": {
+        "math": "90",
+        "english": "85",
+        "chemistry": "88",
+        "physics": "92"
+      }
+    }
+  ]
+}`;
+
+      const data = JSON.parse(myJSON);
+      const a = data.result.length;
+      let tr = "";
+
+      for (let i = 0; i < a; i++) {
+        tr += "<tr>";
+        tr += `<td>${data.result[i].name}</td>`;
+         for (var key in data.result[i].marks){
+         tr += `<td>${data.result[i].marks[key]}</td>`;
+         
+         }
+         
+    
+      }
+      document.getElementById("mytable").innerHTML += tr;
+      function add()
+      {
+        a = document.getElementById("n1").value;
+        b = document.getElementById("m1").value;
+        c = document.getElementById("m2").value;
+        d = document.getElementById("m3").value;
+        e = document.getElementById("m4").value;
+        data.result.push({
+          name: a,
+          marks: {
+            math: b,
+            english: c,
+            chemistry: d,
+            physics: e,
+          },
+
+        });
+      }
+      document.write(result);
+    </script>
+  </body>
+</html>

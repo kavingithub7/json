@@ -1,0 +1,80 @@
+.main{
+    
+    width: 50%;
+    height: auto;
+    margin-left: 16%;
+    background-color: rgba(228, 85, 233, 0.63);
+    /* color: #26282b; */
+    padding-left: 150px;
+    padding-top: 1px;
+    padding-bottom: 7px;
+    background-image: url(overlapping-forms-wallpaper-theme_52683-44653.jpg);
+    background-size: cover;
+}
+.header{
+    background-color: black;
+    color: white;
+    text-align: center;
+    width: 80%;
+    height: 50px;
+    margin-top: 10px;
+    
+}
+.inputfields{
+    width: 80%;
+    height: 420px;
+    /* background-color: white; */
+    background-image: url(fish_form-t2.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-top: -10px;
+    color: rgb(196, 176, 176);
+}
+.name{
+    width: 100%;
+    margin-left: 100px;
+    padding-top: 20px;
+
+}
+.email{
+    width: 100%;
+    margin-left: 100px;
+    padding-top: 20px;
+}
+.dob{
+    width: 100%;
+    margin-left: 100px;
+    padding-top: 20px;
+}
+.gender{
+    width: 100%;
+    margin-left: 100px;
+    padding-top: 20px;
+}
+.pn{
+    
+        width: 100%;
+        margin-left: 100px;
+        padding-top: 20px;
+    
+}
+.button{
+    height: 50px;
+    text-align: center;
+    margin-top: 50px;
+    /* margin-left: 100px; */
+}
+#a2{
+    margin-left: 175px;
+    color: red;
+}
+#a5{
+    margin-left: 175px;
+    color: red;
+}
+
+
+
+
+
+

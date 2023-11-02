@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="demo"></p>
+
+    <table border="1" id="mytable">
+      <tr>
+        <th rowspan="2">name</th>
+        <th colspan="4">marks</th>
+      </tr>
+      <tr>
+        <td>math</td>
+        <td>english</td>
+        <td>chemistry</td>
+        <td>physics</td>
+      </tr>
+    </table>
+    <br>
+    <button onclick="sortAscending()">A-Z</button>
+    <button onclick="sortDescending()">Z-A</button>
+
+    <script>
+      const myJSON = `{
+        "result": [
+          { "name": "John",
+            "marks": {
+              "math": "78",
+              "english": "90",
+              "chemistry": "64",
+              "physics": "89"
+            }
+          },
+          {
+            "name": "Mike",
+            "marks": {
+              "math": "67",
+              "english": "86",
+              "chemistry": "59",
+              "physics": "70"
+            }
+          },
+          {
+            "name": "Julia",
+            "marks": {
+              "math": "82",
+              "english": "75",
+              "chemistry": "73",
+              "physics": "84"
+            }
+          },
+          {
+            "name": "Tom",
+            "marks": {
+              "math": "76",
+              "english": "64",
+              "chemistry": "59",
+              "physics": "72"
+            }
+          },
+          {
+            "name": "Barbara",
+            "marks": {
+              "math": "90",
+              "english": "85",
+              "chemistry": "88",
+              "physics": "92"
+            }
+          }
+        ]
+      }`;
+
+      let data = JSON.parse(myJSON);
+
+      function populateTable(data) {
+        let tableContent = "";
+
+        data.result.forEach(item => {
+          tableContent += `<tr><td>${item.name}</td>`;
+          for (var key in item.marks) {
+            tableContent += `<td>${item.marks[key]}</td>`;
+          }
+          tableContent += "</tr>";
+        });
+
+        document.getElementById("mytable").innerHTML = tableContent;
+      }
+
+      function sortAscending() {
+        data.result.sort((a, b) => a.name.localeCompare(b.name));
+        populateTable(data);
+      }
+
+      function sortDescending() {
+        data.result.sort((a, b) => b.name.localeCompare(a.name));
+        populateTable(data);
+      }
+
+      populateTable(data);
+    </script>
+  </body>
+</html>

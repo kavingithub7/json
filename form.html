@@ -1,0 +1,119 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="form.css">
+ </head>
+ <body>
+    <!-- https://colorlib.com/wp/free-bootstrap-registration-forms/ -->
+    <div class="main">
+        <div class="header">
+            <h1>REGISTRATION FORM</h1>
+        </div>
+        <div class="inputfields">
+            <div class="name">
+            <label for="text">NAME</label>
+            <input type="text" id="if1" style="width: 150px; margin-left: 121px; ">
+            <p id="a1"></p> 
+          
+        </div>
+           <div class="email">
+            <label for="mail">EMAIL</label> 
+            <input type="email" id="if2" style="width: 150px;margin-left: 119px; "> 
+            <p id="a2"></p>
+        </div>
+        <div class="dob">
+            <label for="date">DATE OF BIRTH</label>
+            <input type="date" id="if3" style="width: 150px;margin-left: 52px;"> 
+        </div>
+        <div class="gender">
+            <label for="gender">GENDER</label>
+            <input type="radio" id="if4" style="margin-left:102px;">male<input type="radio" id="if4" >female
+        </div>
+        <div class="pn">
+            <label for="number">PHONE NUMBER</label>
+            <input type="number" id="if5" style="width: 150px;margin-left: 47px;"> 
+            <p id="a5"></p>
+        </div>
+        <div class="button">
+            <button onclick="f1()">
+            REGISTER</button>
+        </div>
+
+
+        
+            
+        </div>
+    </div>
+    <script>
+        function f1(){
+
+        
+        a = document.getElementById("if1").value;
+        b = document.getElementById("if2").value;
+        c = document.getElementById("if3").value;
+        d = document.getElementById("if4").value;
+        e = document.getElementById("if5").value;
+        
+        if(a=="")
+        {
+            document.getElementById("if1").style.borderColor="red";
+            
+        }
+        else
+            document.getElementById("if1").style.borderColor="green";
+            
+        if(b=="")
+        {
+            document.getElementById("if2").style.borderColor="red";
+        }
+        else
+            document.getElementById("if2").style.borderColor="green";
+            
+        if(c=="")
+        {
+            document.getElementById("if3").style.borderColor="red";
+        }
+        else
+            document.getElementById("if3").style.borderColor="green";
+            
+        if(e=="")
+        {
+            document.getElementById("if5").style.borderColor="red";
+        }
+        else{
+            document.getElementById("if5").style.borderColor="green";
+        }
+        let v =  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        x = v.test(b)
+        let v2 =  /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/g;
+        x1 = v2.test(e)
+        if(x)
+        {
+           document.getElementById("a2").innerHTML = "valid"
+           document.getElementById("a2").style.color = "green"
+        }
+        else{
+            document.getElementById("a2").innerHTML = " Enter a valid mail"
+            document.getElementById("a2").style.color = "red"
+        }
+        if(x1)
+        {
+           document.getElementById("a5").innerHTML = "valid"
+        }
+        else{
+            document.getElementById("a5").innerHTML = " Enter a valid number"
+        }
+            
+        }
+        
+
+        
+        
+        
+    </script>
+    
+ </body>
+ </html>

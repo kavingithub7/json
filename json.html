@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+  table,tr,th,td{
+    border: 1px solid black;
+    
+  }
+</style>
+<body>
+  
+    <p id="demo"></p>
+    <table>
+        <tr>
+            <th>NAME</th>
+            <th>MATHS</th>
+            <th>ENGLISH</th>
+            <th>CHEMISRTY</th>
+            <th>PHYSICS</th>
+        </tr>
+        <tr id="one">
+            <td>jhon</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          <tr>
+            <tr >
+            <td>mike</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+           </tr>
+           <tr>
+            <td>julia</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+           </tr>
+           <tr>
+            <td>tom</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+           
+           </tr>
+           <tr>
+            <td>barbara</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+           </tr>
+    </table>
+    
+    <script>
+        
+const myJSON =`{
+  "result": [
+    {
+      "name": "John",
+      "marks": {
+        "math": "78",
+        "english": "90",
+        "chemistry": "64",
+        "physics": "89"
+      }
+    },
+    {
+      "name": "Mike",
+      "marks": {
+        "math": "67",
+        "english": "86",
+        "chemistry": "59",
+        "physics": "70"
+      }
+    },
+    {
+      "name": "Julia",
+      "marks": {
+        "math": "82",
+        "english": "75",
+        "chemistry": "73",
+        "physics": "84"
+      }
+    },
+    {
+      "name": "Tom",
+      "marks": {
+        "math": "76",
+        "english": "64",
+        "chemistry": "59",
+        "physics": "72"
+      }
+    },
+    {
+      "name": "Barbara",
+      "marks": {
+        "math": "90",
+        "english": "85",
+        "chemistry": "88",
+        "physics": "92"
+      }
+    }
+  ]
+}`;
+   
+     const myObj=JSON.parse(myJSON)
+    //  document.getElementById("demo").innerHTML = myObj.result[0].marks.math;
+     a = myObj.result.length;
+     b = a-1;
+     document.getElementById("demo").innerHTML = b;
+     for(i=0;i<=b;i++)
+     {
+      // document.getElementById("one").innerHTML = myObj.result[i].name;
+      document.write(myObj.result[i].marks.math,"<br>");
+     }
+     
+    </script>
+    
+</body>
+</html>
